@@ -1,0 +1,3 @@
+webpack: empaqueta nuestro código javascript en un solo codigo
+convierte ecmascript 6 en 5 y archivos jsx en js
+babel-loader --> convierte jsx en js

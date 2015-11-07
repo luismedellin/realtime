@@ -1,8 +1,8 @@
 var React = require('react');
 
 var APP = React.createClass({
-	render(){
-		return (<h1>Hello world from React</h1>);
+	render: function (){
+		return (<h1>Hello world form React</h1>);
 	}
 });
 
