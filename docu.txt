@@ -1,3 +1,18 @@
-webpack: empaqueta nuestro código javascript en un solo codigo
-convierte ecmascript 6 en 5 y archivos jsx en js
-babel-loader --> convierte jsx en js
+express: api rest
+react: view from html
+
+webpack: empaqueta y compilar nuestro código javascript en un solo codigo
+		convierte ecmascript 6 en 5 y archivos jsx en js, esto para que el navegador pueda entender el código
+babel-loader --> convierte jsx en js para que sea entendido por el navegador
+
+webpack.config.js --> decimos el origen (archivo jsx) y destino a compilar (js)
+
+socket.io = aplicación realtime del lado del servidor
+socket.io-client = aplicación realtime del lado del cliente
+
+
+
+
+//COMANDOS
+
+webpack: compila jsx y ES6 en bundle.js
