@@ -20442,20 +20442,31 @@
 
 		//cuando la conexión ha sido establecida
 		connect: function connect() {
-			alert('Connect: ' + this.socket.id);
+			this.setState({ status: 'connected' });
+		},
+		//cuando el usuario se desconecte del socket
+		disconnect: function disconnect() {
+			this.setState({ status: 'disconnected' });
+		},
+		//estado inicial
+		getInitialState: function getInitialState() {
+			return {
+				status: 'disconnected'
+			};
 		},
 
 		//Antes de renderizar hacemos la conexión con el socket.
 		componentWillMount: function componentWillMount() {
 			this.socket = io('http://localhost:3000');
 			this.socket.on('connect', this.connect);
+			this.socket.on('disconnect', this.disconnect);
 		},
 
 		render: function render() {
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(Header, { title: 'Mi nuevo titulo' })
+				React.createElement(Header, { title: 'Mi nuevo titulo', status: this.state.status })
 			);
 		}
 	});
@@ -27810,8 +27821,11 @@
 	var Header = React.createClass({
 		displayName: 'Header',
 
-		getDefaultProps: function getDefaultProps() {
-			title: React.PropTypes.string.isRequired;
+		propTypes: function propTypes() {
+			return {
+				title: React.PropTypes.string.isRequired,
+				status: React.PropTypes.string.isRequired
+			};
 		},
 		render: function render() {
 			return React.createElement(
@@ -27821,6 +27835,11 @@
 					'h1',
 					null,
 					this.props.title
+				),
+				React.createElement(
+					'span',
+					null,
+					this.props.status
 				)
 			);
 		}
