@@ -20435,6 +20435,7 @@
 
 	var React = __webpack_require__(1);
 	var io = __webpack_require__(158);
+	var Header = __webpack_require__(209);
 
 	var APP = React.createClass({
 		displayName: 'APP',
@@ -20452,9 +20453,9 @@
 
 		render: function render() {
 			return React.createElement(
-				'h1',
+				'div',
 				null,
-				'Hello world from React'
+				React.createElement(Header, { title: 'Mi nuevo titulo' })
 			);
 		}
 	});
@@ -27797,6 +27798,35 @@
 	};
 
 
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Header = React.createClass({
+		displayName: 'Header',
+
+		getDefaultProps: function getDefaultProps() {
+			title: React.PropTypes.string.isRequired;
+		},
+		render: function render() {
+			return React.createElement(
+				'header',
+				null,
+				React.createElement(
+					'h1',
+					null,
+					this.props.title
+				)
+			);
+		}
+	});
+
+	module.exports = Header;
 
 /***/ }
 /******/ ]);
