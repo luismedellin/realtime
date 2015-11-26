@@ -1,8 +1,8 @@
 var express = require('express');
-
 var app = express();
-
 var connections = [];
+
+var title='Sin titulo';
 
 app.use(express.static('./public'));
 app.use(express.static('./node_modules/bootstrap/dist/'));
@@ -22,6 +22,10 @@ io.sockets.on('connection', function (socket) {
 		socket.disconnect();
 
 		console.log('Cantidad: %s', connections.length);		
+	});
+
+	socket.emit('welcome', {
+		title: title
 	});
 	
 	connections.push(socket);
