@@ -19,6 +19,7 @@ io.sockets.on('connection', function (socket) {
 
 		//quita del array el elemento que ha sido desconectado
 		connections.splice(connections.indexOf(socket), 1);
+		socket.disconnect();
 
 		console.log('Cantidad: %s', connections.length);		
 	});

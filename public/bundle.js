@@ -27814,12 +27814,12 @@
 /* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
 
 	var Header = React.createClass({
-		displayName: 'Header',
+		displayName: "Header",
 
 		propTypes: function propTypes() {
 			return {
@@ -27829,17 +27829,21 @@
 		},
 		render: function render() {
 			return React.createElement(
-				'header',
-				null,
+				"header",
+				{ className: "row" },
 				React.createElement(
-					'h1',
-					null,
-					this.props.title
+					"div",
+					{ className: "col-xs-10" },
+					React.createElement(
+						"h1",
+						null,
+						this.props.title
+					)
 				),
 				React.createElement(
-					'span',
-					null,
-					this.props.status
+					"div",
+					{ className: "col-xs-2" },
+					React.createElement("span", { id: "connection-status", className: this.props.status })
 				)
 			);
 		}
